@@ -6,9 +6,10 @@ export const playgroundTask = async () => {
     
     try {
         const getRequestData = await getData(url);
+        const response = getRequestData.data;
 
         //console.log(typeof (getRequestData));
-        const getPostData = await sendData('POLIGON', processDataToArray(getRequestData));
+        const getPostData = await sendData('POLIGON', processDataToArray(response), process.env.VERIFY_URL);
         console.log(getPostData);
 
         return sendData;
